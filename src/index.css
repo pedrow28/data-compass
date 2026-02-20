@@ -2,94 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 228 100% 22%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 228 100% 22%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 228 100% 22%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 228 100% 22%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 50% 35%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 224 40% 93%;
+    --muted-foreground: 228 30% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 195 100% 62%;
+    --accent-foreground: 228 100% 22%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 224 30% 85%;
+    --input: 224 30% 85%;
+    --ring: 195 100% 62%;
 
     --radius: 0.5rem;
 
+    /* THAUMA custom tokens */
+    --thauma-deep: 233 100% 22%;
+    --thauma-cyan: 195 100% 62%;
+    --thauma-mid: 224 68% 32%;
+    --thauma-data-bg: 224 40% 93%;
+    --thauma-success: 145 60% 40%;
+    --thauma-danger: 0 70% 50%;
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -101,5 +60,63 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .bg-thauma-deep {
+    background-color: #001070;
+  }
+
+  .bg-thauma-mid {
+    background-color: #1a3a8a;
+  }
+
+  .text-thauma-cyan {
+    color: #40D7FF;
+  }
+
+  .border-thauma-cyan {
+    border-color: #40D7FF;
+  }
+
+  .bg-thauma-data {
+    background-color: hsl(var(--thauma-data-bg));
+  }
+
+  .bg-thauma-success {
+    background-color: hsl(var(--thauma-success) / 0.1);
+  }
+
+  .bg-thauma-danger {
+    background-color: hsl(var(--thauma-danger) / 0.1);
+  }
+
+  /* Geometric pattern overlay */
+  .geo-pattern {
+    background-image: 
+      linear-gradient(30deg, rgba(64,215,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(64,215,255,0.03) 87.5%),
+      linear-gradient(150deg, rgba(64,215,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(64,215,255,0.03) 87.5%),
+      linear-gradient(30deg, rgba(64,215,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(64,215,255,0.03) 87.5%),
+      linear-gradient(150deg, rgba(64,215,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(64,215,255,0.03) 87.5%);
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+  }
+
+  .slide-content {
+    @apply w-full h-full;
   }
 }
